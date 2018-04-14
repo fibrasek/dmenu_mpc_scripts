@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+playlist=$(mpc lsplaylists | sed -e "s/^>/ /" | dmenu -i)
+
+if [ "$playlist" == "" ]; then
+    echo "do nothing..."
+else
+    { 
+        mpc clear
+        mpc load "$playlist"
+        mpc play
+    } >/dev/null 
+fi

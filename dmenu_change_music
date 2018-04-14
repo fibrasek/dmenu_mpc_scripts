@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+mpc play `mpc playlist -f "%position% - %artist% - %title%" | sed -e "s/^>/ /" | dmenu -i | cut -d " " -f 1`
